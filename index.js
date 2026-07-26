@@ -28,8 +28,11 @@ if (proxyUrl) {
 
 const bot = new Telegraf(token, options);
 
+const greetings = ['Прювет!!!', 'Здрасте, здрасте...', 'Приветствую'];
+
 bot.on('message', (ctx) => {
-  ctx.reply('Привет, я бот!');
+  const reply = greetings[Math.floor(Math.random() * greetings.length)];
+  ctx.reply(reply);
 });
 
 bot.launch().then(() => {
